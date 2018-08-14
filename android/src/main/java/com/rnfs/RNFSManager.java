@@ -37,6 +37,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONObject;
+
+
 public class RNFSManager extends ReactContextBaseJavaModule {
 
   private static final String RNFSDocumentDirectoryPath = "RNFSDocumentDirectoryPath";
