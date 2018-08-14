@@ -231,7 +231,7 @@ public class RNFSManager extends ReactContextBaseJavaModule {
             result.put("orientation", orientation);
           }
 
-          float[] location;
+          float[] location = null;
           if (exif.getLatLong(location)) {
             result.put("latitude", location[0]);
             result.put("longitude", location[1]);
