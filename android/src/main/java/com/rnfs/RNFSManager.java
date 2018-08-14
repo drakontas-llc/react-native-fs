@@ -215,7 +215,10 @@ public class RNFSManager extends ReactContextBaseJavaModule {
       byte[] inputData = getInputStreamBytes(inputStream);
       String base64Content = Base64.encodeToString(inputData, Base64.NO_WRAP);
 
-      promise.resolve(base64Content);
+      JSONObject result = new JSONObject();
+      result.put("base64Data", base64Content)
+      promise.resolve(result.toString());
+
     } catch (Exception ex) {
       ex.printStackTrace();
       reject(promise, filepath, ex);
