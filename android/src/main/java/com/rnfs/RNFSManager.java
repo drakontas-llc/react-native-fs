@@ -223,7 +223,7 @@ public class RNFSManager extends ReactContextBaseJavaModule {
 
       // attempt to get exif data
       try {
-        ExifInterface exif = new ExifInterface(inputStream);
+        ExifInterface exif = new ExifInterface(filepath);
         if (exif != null) {
 
           String orientation = exif.getAttribute(ExifInterface.TAG_ORIENTATION);
