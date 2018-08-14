@@ -38,7 +38,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.json.JSONObject;
-import android.media.ExifInterface;
+import android.support.media.ExifInterface;
 
 public class RNFSManager extends ReactContextBaseJavaModule {
 
