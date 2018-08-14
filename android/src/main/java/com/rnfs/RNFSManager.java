@@ -38,7 +38,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.json.JSONObject;
-
+import android.media.ExifInterface;
 
 public class RNFSManager extends ReactContextBaseJavaModule {
 
@@ -220,6 +220,25 @@ public class RNFSManager extends ReactContextBaseJavaModule {
 
       JSONObject result = new JSONObject();
       result.put("base64Data", base64Content);
+
+      // attempt to get exif data
+      try {
+        ExitInterface exif = new ExifInterface(inputStream);
+        if (exif != null) {
+
+          String orientation = exif.getAttribute(ExifInterface.TAG_ORIENTATION);
+          if (orientation != null) {
+            result.put("orientation", orientation);
+          }
+
+          if (exif.getLatLong(location)) {
+            result.put("latitude", location[0]);
+            result.put("longitude", location[1]);
+          }
+        }
+      } catch(Exception ex){
+
+      }
       promise.resolve(result.toString());
 
     } catch (Exception ex) {
